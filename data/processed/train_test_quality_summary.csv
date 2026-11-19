@@ -1,0 +1,3 @@
+split,reporting_date_start,reporting_date_end,first_timestamp,last_timestamp,expected_hours,actual_records,actual_unique_hours,missing_hours,missing_timestamps,missing_readings,blank_readings,dash_readings,duplicate_records,duplicate_timestamps,conflicting_timestamps,substituted_readings,substituted_pct,valid_readings,valid_station_readings,high_aqhi_readings
+train,2025-04-01,2026-03-31,2025-04-01T01:00:00+08:00,2026-04-01T00:00:00+08:00,8760,8760,8760,0,,9,9,0,0,0,0,411,4.6918,8751,8340,271
+test,2026-04-01,2026-06-30,2026-04-01T01:00:00+08:00,2026-07-01T00:00:00+08:00,2184,2184,2184,0,,9,3,6,0,0,0,672,30.7692,2175,1503,34
