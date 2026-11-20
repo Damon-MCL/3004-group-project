@@ -1,0 +1,266 @@
+{
+  "forecast_horizon_hours": 6,
+  "target_threshold": 4,
+  "positive_definition": "target AQHI >= 4",
+  "feature_sets": {
+    "3h": [
+      "aqhi_now",
+      "aqhi_lag_1h",
+      "aqhi_lag_2h",
+      "aqhi_lag_3h",
+      "aqhi_change_3h",
+      "hour_sin",
+      "hour_cos"
+    ],
+    "6h": [
+      "aqhi_now",
+      "aqhi_lag_1h",
+      "aqhi_lag_2h",
+      "aqhi_lag_3h",
+      "aqhi_change_3h",
+      "hour_sin",
+      "hour_cos",
+      "aqhi_lag_4h",
+      "aqhi_lag_5h",
+      "aqhi_lag_6h",
+      "aqhi_change_6h"
+    ],
+    "12h": [
+      "aqhi_now",
+      "aqhi_lag_1h",
+      "aqhi_lag_2h",
+      "aqhi_lag_3h",
+      "aqhi_change_3h",
+      "hour_sin",
+      "hour_cos",
+      "aqhi_lag_4h",
+      "aqhi_lag_5h",
+      "aqhi_lag_6h",
+      "aqhi_change_6h",
+      "aqhi_lag_7h",
+      "aqhi_lag_8h",
+      "aqhi_lag_9h",
+      "aqhi_lag_10h",
+      "aqhi_lag_11h",
+      "aqhi_lag_12h",
+      "aqhi_change_12h"
+    ]
+  },
+  "cohort": "identical complete twelve-hour-history cases for all three lookbacks",
+  "test_start": "2026-04-01T00:00:00+08:00",
+  "test_target_end": "2026-07-01T00:00:00+08:00",
+  "validation": "three expanding chronological folds with six-row gap; all target boundaries checked",
+  "selection": "pooled validation F1; thresholds and parameters retuned separately for each feature set",
+  "selected_models": {
+    "3h": {
+      "Decision Tree": {
+        "lookback": "3h",
+        "method": "Decision Tree",
+        "parameters": {
+          "class_weight": "balanced",
+          "max_depth": 5,
+          "min_samples_leaf": 30
+        },
+        "threshold": 0.6852488954887986,
+        "validation_f1": 0.8225419664268586,
+        "validation_precision": 0.8445304256067534,
+        "validation_recall": 0.801669449081803
+      },
+      "Random Forest": {
+        "lookback": "3h",
+        "method": "Random Forest",
+        "parameters": {
+          "class_weight": "balanced",
+          "max_depth": null,
+          "min_samples_leaf": 5
+        },
+        "threshold": 0.5110704622744426,
+        "validation_f1": 0.8266457680250783,
+        "validation_precision": 0.7790251107828656,
+        "validation_recall": 0.8804674457429048
+      },
+      "Logistic Regression": {
+        "lookback": "3h",
+        "method": "Logistic Regression",
+        "parameters": {
+          "logisticregression__C": 0.1,
+          "logisticregression__class_weight": "balanced"
+        },
+        "threshold": 0.5767046620181983,
+        "validation_f1": 0.8337182448036952,
+        "validation_precision": 0.823932181284643,
+        "validation_recall": 0.8437395659432387
+      },
+      "KNN": {
+        "lookback": "3h",
+        "method": "KNN",
+        "parameters": {
+          "kneighborsclassifier__n_neighbors": 31,
+          "kneighborsclassifier__weights": "uniform"
+        },
+        "threshold": 0.3548387096774194,
+        "validation_f1": 0.8161321054302954,
+        "validation_precision": 0.7780805328489252,
+        "validation_recall": 0.8580968280467446
+      },
+      "SVM": {
+        "lookback": "3h",
+        "method": "SVM",
+        "parameters": {
+          "svc__C": 0.1,
+          "svc__class_weight": "balanced"
+        },
+        "threshold": 0.13369200810906273,
+        "validation_f1": 0.8252472915685352,
+        "validation_precision": 0.7788974510966212,
+        "validation_recall": 0.8774624373956594
+      }
+    },
+    "6h": {
+      "Decision Tree": {
+        "lookback": "6h",
+        "method": "Decision Tree",
+        "parameters": {
+          "class_weight": null,
+          "max_depth": 5,
+          "min_samples_leaf": 30
+        },
+        "threshold": 0.21311475409836064,
+        "validation_f1": 0.8230178286708218,
+        "validation_precision": 0.727202868852459,
+        "validation_recall": 0.9479131886477462
+      },
+      "Random Forest": {
+        "lookback": "6h",
+        "method": "Random Forest",
+        "parameters": {
+          "class_weight": "balanced",
+          "max_depth": null,
+          "min_samples_leaf": 20
+        },
+        "threshold": 0.49454122075006735,
+        "validation_f1": 0.8279286268425137,
+        "validation_precision": 0.7733333333333333,
+        "validation_recall": 0.8908180300500834
+      },
+      "Logistic Regression": {
+        "lookback": "6h",
+        "method": "Logistic Regression",
+        "parameters": {
+          "logisticregression__C": 1.0,
+          "logisticregression__class_weight": "balanced"
+        },
+        "threshold": 0.5721335220063777,
+        "validation_f1": 0.8332241153342071,
+        "validation_precision": 0.8179478932132519,
+        "validation_recall": 0.8490818030050084
+      },
+      "KNN": {
+        "lookback": "6h",
+        "method": "KNN",
+        "parameters": {
+          "kneighborsclassifier__n_neighbors": 31,
+          "kneighborsclassifier__weights": "uniform"
+        },
+        "threshold": 0.3870967741935484,
+        "validation_f1": 0.8156085079162003,
+        "validation_precision": 0.7826887661141805,
+        "validation_recall": 0.8514190317195326
+      },
+      "SVM": {
+        "lookback": "6h",
+        "method": "SVM",
+        "parameters": {
+          "svc__C": 0.1,
+          "svc__class_weight": "balanced"
+        },
+        "threshold": 0.0194104377624722,
+        "validation_f1": 0.8229326775284352,
+        "validation_precision": 0.7624608373682712,
+        "validation_recall": 0.8938230383973289
+      }
+    },
+    "12h": {
+      "Decision Tree": {
+        "lookback": "12h",
+        "method": "Decision Tree",
+        "parameters": {
+          "class_weight": "balanced",
+          "max_depth": 5,
+          "min_samples_leaf": 30
+        },
+        "threshold": 0.6027619443032475,
+        "validation_f1": 0.8348971193415639,
+        "validation_precision": 0.8233766233766234,
+        "validation_recall": 0.8467445742904841
+      },
+      "Random Forest": {
+        "lookback": "12h",
+        "method": "Random Forest",
+        "parameters": {
+          "class_weight": "balanced",
+          "max_depth": null,
+          "min_samples_leaf": 5
+        },
+        "threshold": 0.5886892312448109,
+        "validation_f1": 0.8280191640508838,
+        "validation_precision": 0.8194898626553303,
+        "validation_recall": 0.8367278797996661
+      },
+      "Logistic Regression": {
+        "lookback": "12h",
+        "method": "Logistic Regression",
+        "parameters": {
+          "logisticregression__C": 1.0,
+          "logisticregression__class_weight": "balanced"
+        },
+        "threshold": 0.5840209626299062,
+        "validation_f1": 0.8366034624896949,
+        "validation_precision": 0.8263843648208469,
+        "validation_recall": 0.8470784641068447
+      },
+      "KNN": {
+        "lookback": "12h",
+        "method": "KNN",
+        "parameters": {
+          "kneighborsclassifier__n_neighbors": 31,
+          "kneighborsclassifier__weights": "uniform"
+        },
+        "threshold": 0.3548387096774194,
+        "validation_f1": 0.8173913043478259,
+        "validation_precision": 0.7762762762762763,
+        "validation_recall": 0.8631051752921536
+      },
+      "SVM": {
+        "lookback": "12h",
+        "method": "SVM",
+        "parameters": {
+          "svc__C": 1.0,
+          "svc__class_weight": "balanced"
+        },
+        "threshold": -0.06246773938427075,
+        "validation_f1": 0.8249845392702535,
+        "validation_precision": 0.7682119205298014,
+        "validation_recall": 0.8908180300500834
+      }
+    }
+  },
+  "validation_selected_configuration": {
+    "lookback": "12h",
+    "method": "Logistic Regression",
+    "parameters": {
+      "logisticregression__C": 1.0,
+      "logisticregression__class_weight": "balanced"
+    },
+    "threshold": 0.5840209626299062,
+    "validation_f1": 0.8366034624896949,
+    "validation_precision": 0.8263843648208469,
+    "validation_recall": 0.8470784641068447
+  },
+  "test_interpretation": "exploratory comparison on an already inspected holdout",
+  "train_samples": 8714,
+  "test_samples": 2134,
+  "train_positives": 3714,
+  "test_positives": 581,
+  "input_sha256": "d48998d88a8c8dbec42812b534c415bbaaff4e36d56ee82b144f9f51c83ff1d8"
+}
