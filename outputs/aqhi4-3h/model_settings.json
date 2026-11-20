@@ -1,0 +1,98 @@
+{
+  "seed": 3004,
+  "forecast_hours": 6,
+  "lookback_hours": 3,
+  "target_threshold": 4,
+  "positive_definition": "target AQHI >= 4",
+  "input_sha256": "d48998d88a8c8dbec42812b534c415bbaaff4e36d56ee82b144f9f51c83ff1d8",
+  "features": [
+    "aqhi_now",
+    "aqhi_lag_1h",
+    "aqhi_lag_2h",
+    "aqhi_lag_3h",
+    "aqhi_change_3h",
+    "hour_sin",
+    "hour_cos"
+  ],
+  "test_start_inclusive": "2026-04-01T00:00:00+08:00",
+  "test_target_end_inclusive": "2026-07-01T00:00:00+08:00",
+  "source_hour24": "next-day midnight, Hong Kong hour endpoint",
+  "aqhi_10plus_encoding": 11,
+  "missing_data": "complete cases; no interpolation",
+  "substitution_policy": "retain flagged readings; fixed-model subgroup metrics exported",
+  "primary_selection_metric": "pooled chronological validation F1; ties prefer higher precision",
+  "validation": {
+    "folds": 3,
+    "gap_rows": 6,
+    "assertion": "fit target times precede validation input times"
+  },
+  "selected_models": {
+    "Decision Tree": {
+      "method": "Decision Tree",
+      "parameters": {
+        "class_weight": "balanced",
+        "max_depth": 5,
+        "min_samples_leaf": 10
+      },
+      "threshold": 0.6332646563026785,
+      "validation_f1": 0.8236493374108053,
+      "validation_precision": 0.8384641992390176,
+      "validation_recall": 0.8093489148580968
+    },
+    "Random Forest": {
+      "method": "Random Forest",
+      "parameters": {
+        "class_weight": "balanced",
+        "max_depth": null,
+        "min_samples_leaf": 5
+      },
+      "threshold": 0.5117260867942489,
+      "validation_f1": 0.8269049858889933,
+      "validation_precision": 0.7794856636121785,
+      "validation_recall": 0.8804674457429048
+    },
+    "Logistic Regression": {
+      "method": "Logistic Regression",
+      "parameters": {
+        "logisticregression__C": 0.1,
+        "logisticregression__class_weight": "balanced"
+      },
+      "threshold": 0.5812265590455619,
+      "validation_f1": 0.8339385935952459,
+      "validation_precision": 0.8246816846229187,
+      "validation_recall": 0.8434056761268781
+    },
+    "KNN": {
+      "method": "KNN",
+      "parameters": {
+        "kneighborsclassifier__n_neighbors": 31,
+        "kneighborsclassifier__weights": "uniform"
+      },
+      "threshold": 0.3548387096774194,
+      "validation_f1": 0.8178060413354531,
+      "validation_precision": 0.7805766312594841,
+      "validation_recall": 0.8587646076794658
+    },
+    "SVM": {
+      "method": "SVM",
+      "parameters": {
+        "svc__C": 0.1,
+        "svc__class_weight": "balanced"
+      },
+      "threshold": 0.1364086034197206,
+      "validation_f1": 0.8252472915685352,
+      "validation_precision": 0.7788974510966212,
+      "validation_recall": 0.8774624373956594
+    }
+  },
+  "validation_winner": "Logistic Regression",
+  "versions": {
+    "python": "3.9.6",
+    "pandas": "2.3.3",
+    "numpy": "1.26.4",
+    "sklearn": "1.6.1"
+  },
+  "test_sample_count": 2153,
+  "test_positive_count": 581,
+  "timeline_selection": "first eligible positive target, 24h before to 48h after"
+}
