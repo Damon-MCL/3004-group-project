@@ -1,0 +1,3 @@
+split,samples,positive_samples,negative_samples,first_input_time,last_input_time,last_target_time,substituted_targets
+train,8732,3718,5014,2025-04-01 04:00:00+08:00,2026-03-31 17:00:00+08:00,2026-03-31 23:00:00+08:00,411
+test,2153,581,1572,2026-04-01 00:00:00+08:00,2026-06-30 18:00:00+08:00,2026-07-01 00:00:00+08:00,655

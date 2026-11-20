@@ -1,0 +1,32 @@
+{
+  "analysis_type": "exploratory density clustering; cluster labels are not high-AQHI predictions",
+  "features": [
+    "aqhi_now",
+    "aqhi_change_3h",
+    "hour_sin",
+    "hour_cos"
+  ],
+  "eps": 0.75,
+  "min_samples": 30,
+  "parameter_policy": "reference setting 0.75/30 with a training-only sensitivity grid; future labels and test results are not used to choose settings",
+  "scaling_fit": "training inputs only",
+  "scaler_mean": [
+    3.489120476408612,
+    0.00034356390288593677,
+    0.0004052975276293968,
+    -0.00016787973274044464
+  ],
+  "scaler_scale": [
+    1.3911064304800358,
+    0.7458081795851907,
+    0.7070108595914485,
+    0.7072025537072604
+  ],
+  "train_assignment": "native DBSCAN labels; -1 denotes training noise",
+  "test_assignment": "custom frozen nearest-training-core rule: assign its label within eps, otherwise -1; no DBSCAN refit on test data",
+  "test_minus_one_meaning": "outside all fitted training core neighborhoods",
+  "future_labels": "used after clustering for descriptive association tables only",
+  "test_statistics": "exploratory summaries on the already inspected holdout",
+  "projection_plot": "current AQHI versus three-hour change; clustering also includes cyclic hour features",
+  "input_sha256": "d48998d88a8c8dbec42812b534c415bbaaff4e36d56ee82b144f9f51c83ff1d8"
+}

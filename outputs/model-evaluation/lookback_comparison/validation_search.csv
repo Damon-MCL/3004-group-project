@@ -1,0 +1,103 @@
+lookback,method,parameters,threshold,validation_f1,validation_precision,validation_recall
+3h,Decision Tree,"{""class_weight"": null, ""max_depth"": 3, ""min_samples_leaf"": 10}",0.08823529411764706,0.19930069930069932,0.14578005115089515,0.3149171270718232
+3h,Decision Tree,"{""class_weight"": null, ""max_depth"": 3, ""min_samples_leaf"": 30}",0.13023255813953488,0.1841680129240711,0.13013698630136986,0.3149171270718232
+3h,Decision Tree,"{""class_weight"": null, ""max_depth"": 5, ""min_samples_leaf"": 10}",0.15789473684210525,0.24271844660194175,0.21645021645021645,0.27624309392265195
+3h,Decision Tree,"{""class_weight"": null, ""max_depth"": 5, ""min_samples_leaf"": 30}",0.1896551724137931,0.22535211267605632,0.19591836734693877,0.26519337016574585
+3h,Decision Tree,"{""class_weight"": ""balanced"", ""max_depth"": 3, ""min_samples_leaf"": 10}",0.8494767909847079,0.23111111111111113,0.19330855018587362,0.287292817679558
+3h,Decision Tree,"{""class_weight"": ""balanced"", ""max_depth"": 3, ""min_samples_leaf"": 30}",0.8494767909847079,0.2329317269076305,0.1829652996845426,0.32044198895027626
+3h,Decision Tree,"{""class_weight"": ""balanced"", ""max_depth"": 5, ""min_samples_leaf"": 10}",0.7723027599665463,0.23758099352051837,0.1950354609929078,0.30386740331491713
+3h,Decision Tree,"{""class_weight"": ""balanced"", ""max_depth"": 5, ""min_samples_leaf"": 30}",0.7752152194707199,0.24166666666666667,0.1939799331103679,0.32044198895027626
+3h,Random Forest,"{""class_weight"": null, ""max_depth"": 5, ""min_samples_leaf"": 5}",0.1082957290108197,0.24608501118568232,0.20676691729323307,0.30386740331491713
+3h,Random Forest,"{""class_weight"": null, ""max_depth"": 5, ""min_samples_leaf"": 20}",0.11369605837100587,0.22222222222222224,0.17337461300309598,0.30939226519337015
+3h,Random Forest,"{""class_weight"": null, ""max_depth"": null, ""min_samples_leaf"": 5}",0.14997576753025663,0.23529411764705882,0.19923371647509577,0.287292817679558
+3h,Random Forest,"{""class_weight"": null, ""max_depth"": null, ""min_samples_leaf"": 20}",0.11465771585239108,0.22939068100358423,0.16976127320954906,0.35359116022099446
+3h,Random Forest,"{""class_weight"": ""balanced"", ""max_depth"": 5, ""min_samples_leaf"": 5}",0.6387983747321869,0.2515463917525773,0.20065789473684212,0.3370165745856354
+3h,Random Forest,"{""class_weight"": ""balanced"", ""max_depth"": 5, ""min_samples_leaf"": 20}",0.6214105602703842,0.24054982817869416,0.1745635910224439,0.3867403314917127
+3h,Random Forest,"{""class_weight"": ""balanced"", ""max_depth"": null, ""min_samples_leaf"": 5}",0.732146527453694,0.21965317919075145,0.23030303030303031,0.20994475138121546
+3h,Random Forest,"{""class_weight"": ""balanced"", ""max_depth"": null, ""min_samples_leaf"": 20}",0.7211907980150509,0.2393162393162393,0.1951219512195122,0.30939226519337015
+3h,Logistic Regression,"{""logisticregression__C"": 0.1, ""logisticregression__class_weight"": null}",0.08999535343092296,0.27397260273972607,0.19851116625310175,0.4419889502762431
+3h,Logistic Regression,"{""logisticregression__C"": 0.1, ""logisticregression__class_weight"": ""balanced""}",0.875039515352264,0.3306233062330624,0.324468085106383,0.3370165745856354
+3h,Logistic Regression,"{""logisticregression__C"": 1.0, ""logisticregression__class_weight"": null}",0.11813409864500621,0.29838709677419356,0.23492063492063492,0.4088397790055249
+3h,Logistic Regression,"{""logisticregression__C"": 1.0, ""logisticregression__class_weight"": ""balanced""}",0.8905236039195574,0.3393939393939394,0.37583892617449666,0.30939226519337015
+3h,Logistic Regression,"{""logisticregression__C"": 10.0, ""logisticregression__class_weight"": null}",0.12514195791598853,0.2967479674796748,0.2347266881028939,0.40331491712707185
+3h,Logistic Regression,"{""logisticregression__C"": 10.0, ""logisticregression__class_weight"": ""balanced""}",0.8924818224046702,0.3374233128834356,0.3793103448275862,0.30386740331491713
+3h,KNN,"{""kneighborsclassifier__n_neighbors"": 5, ""kneighborsclassifier__weights"": ""uniform""}",0.4,0.1848184818481848,0.22950819672131148,0.15469613259668508
+3h,KNN,"{""kneighborsclassifier__n_neighbors"": 5, ""kneighborsclassifier__weights"": ""distance""}",0.22080644079559214,0.19195046439628485,0.21830985915492956,0.1712707182320442
+3h,KNN,"{""kneighborsclassifier__n_neighbors"": 15, ""kneighborsclassifier__weights"": ""uniform""}",0.2,0.21621621621621623,0.21164021164021163,0.22099447513812154
+3h,KNN,"{""kneighborsclassifier__n_neighbors"": 15, ""kneighborsclassifier__weights"": ""distance""}",0.09090909090909091,0.20366598778004072,0.16129032258064516,0.27624309392265195
+3h,KNN,"{""kneighborsclassifier__n_neighbors"": 31, ""kneighborsclassifier__weights"": ""uniform""}",0.12903225806451613,0.21501014198782964,0.16987179487179488,0.292817679558011
+3h,KNN,"{""kneighborsclassifier__n_neighbors"": 31, ""kneighborsclassifier__weights"": ""distance""}",0.13157623109498778,0.2093541202672606,0.17537313432835822,0.2596685082872928
+3h,SVM,"{""svc__C"": 0.1, ""svc__class_weight"": null}",-0.9947551923822957,0.17892644135188865,0.13975155279503104,0.24861878453038674
+3h,SVM,"{""svc__C"": 0.1, ""svc__class_weight"": ""balanced""}",0.674288191465643,0.22099447513812157,0.16574585635359115,0.3314917127071823
+3h,SVM,"{""svc__C"": 1.0, ""svc__class_weight"": null}",-0.9677174117676822,0.19796954314720816,0.18309859154929578,0.2154696132596685
+3h,SVM,"{""svc__C"": 1.0, ""svc__class_weight"": ""balanced""}",1.0674395433475818,0.2057142857142857,0.21301775147928995,0.19889502762430938
+3h,SVM,"{""svc__C"": 10.0, ""svc__class_weight"": null}",-0.8631674102664653,0.2195121951219512,0.24489795918367346,0.19889502762430938
+3h,SVM,"{""svc__C"": 10.0, ""svc__class_weight"": ""balanced""}",1.2465658856317008,0.20189274447949526,0.23529411764705882,0.17679558011049723
+6h,Decision Tree,"{""class_weight"": null, ""max_depth"": 3, ""min_samples_leaf"": 10}",0.05405405405405406,0.18053097345132743,0.1328125,0.281767955801105
+6h,Decision Tree,"{""class_weight"": null, ""max_depth"": 3, ""min_samples_leaf"": 30}",0.1702127659574468,0.17829457364341086,0.1373134328358209,0.2541436464088398
+6h,Decision Tree,"{""class_weight"": null, ""max_depth"": 5, ""min_samples_leaf"": 10}",0.08661417322834646,0.22568093385214005,0.17417417417417416,0.32044198895027626
+6h,Decision Tree,"{""class_weight"": null, ""max_depth"": 5, ""min_samples_leaf"": 30}",0.15702479338842976,0.21413276231263384,0.17482517482517482,0.27624309392265195
+6h,Decision Tree,"{""class_weight"": ""balanced"", ""max_depth"": 3, ""min_samples_leaf"": 10}",0.8303608896349141,0.23636363636363636,0.20077220077220076,0.287292817679558
+6h,Decision Tree,"{""class_weight"": ""balanced"", ""max_depth"": 3, ""min_samples_leaf"": 30}",0.8303608896349141,0.2329317269076305,0.1829652996845426,0.32044198895027626
+6h,Decision Tree,"{""class_weight"": ""balanced"", ""max_depth"": 5, ""min_samples_leaf"": 10}",0.8049323078878791,0.2466960352422907,0.20512820512820512,0.30939226519337015
+6h,Decision Tree,"{""class_weight"": ""balanced"", ""max_depth"": 5, ""min_samples_leaf"": 30}",0.7752152194707207,0.2374245472837022,0.18670886075949367,0.3259668508287293
+6h,Random Forest,"{""class_weight"": null, ""max_depth"": 5, ""min_samples_leaf"": 5}",0.11541130311761559,0.24256292906178487,0.20703125,0.292817679558011
+6h,Random Forest,"{""class_weight"": null, ""max_depth"": 5, ""min_samples_leaf"": 20}",0.1058454037350704,0.21797323135755256,0.16666666666666666,0.3149171270718232
+6h,Random Forest,"{""class_weight"": null, ""max_depth"": null, ""min_samples_leaf"": 5}",0.137792591780526,0.23430962343096232,0.18855218855218855,0.30939226519337015
+6h,Random Forest,"{""class_weight"": null, ""max_depth"": null, ""min_samples_leaf"": 20}",0.09788176140366005,0.2253968253968254,0.15812917594654788,0.39226519337016574
+6h,Random Forest,"{""class_weight"": ""balanced"", ""max_depth"": 5, ""min_samples_leaf"": 5}",0.669960348662132,0.2511415525114155,0.2140077821011673,0.30386740331491713
+6h,Random Forest,"{""class_weight"": ""balanced"", ""max_depth"": 5, ""min_samples_leaf"": 20}",0.6893815642167648,0.25165562913907286,0.20955882352941177,0.3149171270718232
+6h,Random Forest,"{""class_weight"": ""balanced"", ""max_depth"": null, ""min_samples_leaf"": 5}",0.7594849243506459,0.18831168831168832,0.2283464566929134,0.16022099447513813
+6h,Random Forest,"{""class_weight"": ""balanced"", ""max_depth"": null, ""min_samples_leaf"": 20}",0.7231323876443668,0.2358490566037736,0.205761316872428,0.27624309392265195
+6h,Logistic Regression,"{""logisticregression__C"": 0.1, ""logisticregression__class_weight"": null}",0.17429116500391265,0.27450980392156854,0.2784090909090909,0.27071823204419887
+6h,Logistic Regression,"{""logisticregression__C"": 0.1, ""logisticregression__class_weight"": ""balanced""}",0.8872925189898433,0.33333333333333337,0.3691275167785235,0.30386740331491713
+6h,Logistic Regression,"{""logisticregression__C"": 1.0, ""logisticregression__class_weight"": null}",0.14514520233963651,0.2921348314606742,0.24621212121212122,0.35911602209944754
+6h,Logistic Regression,"{""logisticregression__C"": 1.0, ""logisticregression__class_weight"": ""balanced""}",0.8857030038260163,0.3372093023255814,0.3558282208588957,0.32044198895027626
+6h,Logistic Regression,"{""logisticregression__C"": 10.0, ""logisticregression__class_weight"": null}",0.15057399300157762,0.30232558139534893,0.26104417670682734,0.35911602209944754
+6h,Logistic Regression,"{""logisticregression__C"": 10.0, ""logisticregression__class_weight"": ""balanced""}",0.8851370519930241,0.33237822349570206,0.34523809523809523,0.32044198895027626
+6h,KNN,"{""kneighborsclassifier__n_neighbors"": 5, ""kneighborsclassifier__weights"": ""uniform""}",0.4,0.16300940438871472,0.18840579710144928,0.143646408839779
+6h,KNN,"{""kneighborsclassifier__n_neighbors"": 5, ""kneighborsclassifier__weights"": ""distance""}",0.2039316916971293,0.14987080103359174,0.1407766990291262,0.16022099447513813
+6h,KNN,"{""kneighborsclassifier__n_neighbors"": 15, ""kneighborsclassifier__weights"": ""uniform""}",0.13333333333333333,0.178752107925801,0.12864077669902912,0.292817679558011
+6h,KNN,"{""kneighborsclassifier__n_neighbors"": 15, ""kneighborsclassifier__weights"": ""distance""}",0.06783407300062785,0.1536050156739812,0.10722100656455143,0.27071823204419887
+6h,KNN,"{""kneighborsclassifier__n_neighbors"": 31, ""kneighborsclassifier__weights"": ""uniform""}",0.12903225806451613,0.20872865275142316,0.15895953757225434,0.30386740331491713
+6h,KNN,"{""kneighborsclassifier__n_neighbors"": 31, ""kneighborsclassifier__weights"": ""distance""}",0.1111111111111111,0.15901060070671377,0.11688311688311688,0.24861878453038674
+6h,SVM,"{""svc__C"": 0.1, ""svc__class_weight"": null}",-0.9940445170804229,0.14991482112436116,0.10837438423645321,0.2430939226519337
+6h,SVM,"{""svc__C"": 0.1, ""svc__class_weight"": ""balanced""}",0.7183739012431578,0.22125813449023862,0.18214285714285713,0.281767955801105
+6h,SVM,"{""svc__C"": 1.0, ""svc__class_weight"": null}",-0.9850182930842671,0.1660079051383399,0.12923076923076923,0.23204419889502761
+6h,SVM,"{""svc__C"": 1.0, ""svc__class_weight"": ""balanced""}",1.0794929537959845,0.21727019498607245,0.21910112359550563,0.2154696132596685
+6h,SVM,"{""svc__C"": 10.0, ""svc__class_weight"": null}",-0.9010879124570028,0.18320610687022898,0.16981132075471697,0.19889502762430938
+6h,SVM,"{""svc__C"": 10.0, ""svc__class_weight"": ""balanced""}",1.000439155405886,0.16966580976863754,0.15865384615384615,0.18232044198895028
+12h,Decision Tree,"{""class_weight"": null, ""max_depth"": 3, ""min_samples_leaf"": 10}",0.05405405405405406,0.20983606557377046,0.14918414918414918,0.35359116022099446
+12h,Decision Tree,"{""class_weight"": null, ""max_depth"": 3, ""min_samples_leaf"": 30}",0.18,0.21071428571428572,0.15567282321899736,0.3259668508287293
+12h,Decision Tree,"{""class_weight"": null, ""max_depth"": 5, ""min_samples_leaf"": 10}",0.15789473684210525,0.25000000000000006,0.20973782771535582,0.30939226519337015
+12h,Decision Tree,"{""class_weight"": null, ""max_depth"": 5, ""min_samples_leaf"": 30}",0.18,0.22457627118644066,0.18213058419243985,0.292817679558011
+12h,Decision Tree,"{""class_weight"": ""balanced"", ""max_depth"": 3, ""min_samples_leaf"": 10}",0.8303608896349141,0.2329317269076305,0.1829652996845426,0.32044198895027626
+12h,Decision Tree,"{""class_weight"": ""balanced"", ""max_depth"": 3, ""min_samples_leaf"": 30}",0.8303608896349141,0.2329317269076305,0.1829652996845426,0.32044198895027626
+12h,Decision Tree,"{""class_weight"": ""balanced"", ""max_depth"": 5, ""min_samples_leaf"": 10}",0.8663736785841549,0.200445434298441,0.16791044776119404,0.24861878453038674
+12h,Decision Tree,"{""class_weight"": ""balanced"", ""max_depth"": 5, ""min_samples_leaf"": 30}",0.7752152194707205,0.20512820512820512,0.15342465753424658,0.30939226519337015
+12h,Random Forest,"{""class_weight"": null, ""max_depth"": 5, ""min_samples_leaf"": 5}",0.09766186481610198,0.25468164794007486,0.19263456090651557,0.3756906077348066
+12h,Random Forest,"{""class_weight"": null, ""max_depth"": 5, ""min_samples_leaf"": 20}",0.0913596130804074,0.2168284789644013,0.15331807780320367,0.3701657458563536
+12h,Random Forest,"{""class_weight"": null, ""max_depth"": null, ""min_samples_leaf"": 5}",0.13968031129059774,0.22093023255813957,0.1701492537313433,0.3149171270718232
+12h,Random Forest,"{""class_weight"": null, ""max_depth"": null, ""min_samples_leaf"": 20}",0.10030242715259197,0.2252252252252252,0.15463917525773196,0.4143646408839779
+12h,Random Forest,"{""class_weight"": ""balanced"", ""max_depth"": 5, ""min_samples_leaf"": 5}",0.6250729874042905,0.2333333333333333,0.18729096989966554,0.30939226519337015
+12h,Random Forest,"{""class_weight"": ""balanced"", ""max_depth"": 5, ""min_samples_leaf"": 20}",0.6550999125343114,0.24691358024691357,0.19672131147540983,0.3314917127071823
+12h,Random Forest,"{""class_weight"": ""balanced"", ""max_depth"": null, ""min_samples_leaf"": 5}",0.5419168703657685,0.1814595660749507,0.1411042944785276,0.2541436464088398
+12h,Random Forest,"{""class_weight"": ""balanced"", ""max_depth"": null, ""min_samples_leaf"": 20}",0.686934788708033,0.2317596566523605,0.18947368421052632,0.2983425414364641
+12h,Logistic Regression,"{""logisticregression__C"": 0.1, ""logisticregression__class_weight"": null}",0.15782358305880018,0.2745098039215686,0.24669603524229075,0.30939226519337015
+12h,Logistic Regression,"{""logisticregression__C"": 0.1, ""logisticregression__class_weight"": ""balanced""}",0.8633005983960659,0.32820512820512815,0.3062200956937799,0.35359116022099446
+12h,Logistic Regression,"{""logisticregression__C"": 1.0, ""logisticregression__class_weight"": null}",0.13692733101937993,0.291304347826087,0.24014336917562723,0.3701657458563536
+12h,Logistic Regression,"{""logisticregression__C"": 1.0, ""logisticregression__class_weight"": ""balanced""}",0.8489663795324431,0.3333333333333333,0.2840466926070039,0.40331491712707185
+12h,Logistic Regression,"{""logisticregression__C"": 10.0, ""logisticregression__class_weight"": null}",0.13659684430443017,0.2942430703624734,0.23958333333333334,0.3812154696132597
+12h,Logistic Regression,"{""logisticregression__C"": 10.0, ""logisticregression__class_weight"": ""balanced""}",0.8552589802901074,0.3341176470588236,0.29098360655737704,0.39226519337016574
+12h,KNN,"{""kneighborsclassifier__n_neighbors"": 5, ""kneighborsclassifier__weights"": ""uniform""}",0.4,0.16615384615384615,0.1875,0.14917127071823205
+12h,KNN,"{""kneighborsclassifier__n_neighbors"": 5, ""kneighborsclassifier__weights"": ""distance""}",0.2555958106143157,0.15517241379310345,0.16167664670658682,0.14917127071823205
+12h,KNN,"{""kneighborsclassifier__n_neighbors"": 15, ""kneighborsclassifier__weights"": ""uniform""}",0.2,0.18795180722891566,0.16666666666666666,0.2154696132596685
+12h,KNN,"{""kneighborsclassifier__n_neighbors"": 15, ""kneighborsclassifier__weights"": ""distance""}",0.15370521959757794,0.1789709172259508,0.15037593984962405,0.22099447513812154
+12h,KNN,"{""kneighborsclassifier__n_neighbors"": 31, ""kneighborsclassifier__weights"": ""uniform""}",0.12903225806451613,0.2170542635658915,0.16716417910447762,0.30939226519337015
+12h,KNN,"{""kneighborsclassifier__n_neighbors"": 31, ""kneighborsclassifier__weights"": ""distance""}",0.12692073166055956,0.19230769230769232,0.156794425087108,0.24861878453038674
+12h,SVM,"{""svc__C"": 0.1, ""svc__class_weight"": null}",-1.0000378198679778,0.1562881562881563,0.10031347962382445,0.35359116022099446
+12h,SVM,"{""svc__C"": 0.1, ""svc__class_weight"": ""balanced""}",0.5017194497511035,0.22950819672131145,0.17119565217391305,0.34806629834254144
+12h,SVM,"{""svc__C"": 1.0, ""svc__class_weight"": null}",-0.9575881445296313,0.17357001972386588,0.13496932515337423,0.2430939226519337
+12h,SVM,"{""svc__C"": 1.0, ""svc__class_weight"": ""balanced""}",0.8965245361069917,0.17094017094017094,0.13937282229965156,0.22099447513812154
+12h,SVM,"{""svc__C"": 10.0, ""svc__class_weight"": null}",-0.840859184475633,0.20487804878048782,0.18340611353711792,0.23204419889502761
+12h,SVM,"{""svc__C"": 10.0, ""svc__class_weight"": ""balanced""}",0.6913316510352008,0.1496881496881497,0.12,0.19889502762430938
