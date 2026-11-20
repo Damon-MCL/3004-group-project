@@ -1,0 +1,7 @@
+,count
+input_rows,10944
+rows_with_missing_features,33
+rows_with_missing_or_unavailable_targets,24
+rows_with_both,4
+complete_rows,10891
+excluded_complete_rows_across_split_boundary,6
