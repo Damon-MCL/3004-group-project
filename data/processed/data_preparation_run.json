@@ -1,0 +1,42 @@
+{
+  "executed_at_utc": "2026-11-19T11:37:51.537098+00:00",
+  "python": "3.12.14",
+  "pandas": "3.0.1",
+  "input_files": 15,
+  "input_sha256": {
+    "202504_Eng.csv": "4f43a6416f2649a41c3120a8c7acebc4b5fc5b6b4e72df9a0b621da0fbe7a58a",
+    "202505_Eng.csv": "862dc3f64824e572a1059c34747c80b137b1b57ece04f6ec8d8840ac5f82b6bb",
+    "202506_Eng.csv": "e3c5f0ce26f53b580d849bae72f82097a59ff9f58490eb5169d2887c44eb25fa",
+    "202507_Eng.csv": "d9ac11be12a78c11d4302e4bfc1142cc9f8f4a7327aeac533420c878541172ae",
+    "202508_Eng.csv": "8d46b965f639775c9e79c3b876d85ac99194a8c46bc8e6f1194f9f059c31f67a",
+    "202509_Eng.csv": "7f0892535f9bfd6b8a1d51b79ee79699da8a399e0ec6714bfbf72a896b43b7cf",
+    "202510_Eng.csv": "0ffac57239547eb7f86e8ea4067ad23e13f9089a65be4fed9db1fb506aa83e9d",
+    "202511_Eng.csv": "768ca7a2db5e212197c16167c63214070f361ac6b0b2ddb15125e70159c56e84",
+    "202512_Eng.csv": "3d87343eacf89eb66f7a2610abe9de8b20d397ea3556def4f0b0cdb62867f623",
+    "202601_Eng.csv": "b7f389e548b24ca671c2c62c5fadd09c7e5d1b910986f22cb4993eca87f93e39",
+    "202602_Eng.csv": "84b3c023393fac9f14551bfea5e0d95aa66178a8ff9a65b375f977577e7fd9e3",
+    "202603_Eng.csv": "0c770a838f72424603039608e2ed8b239f7b48a36ce4c8f60d727400c216b09a",
+    "202604_Eng.csv": "140c65f81b89410c0eb8a1fb6af40bf63ee22f3cc92079351793cc05d972690c",
+    "202605_Eng.csv": "4af7009ee3777629393bbafbd1d52c717de9f58ffa359938b0efa9e8bee8ea3b",
+    "202606_Eng.csv": "36a0a68e28f051975b7db25ed0fe306af42cd916aee9536521e8d1a9e795f96e"
+  },
+  "raw_table_rows": 11400,
+  "daily_max_rows_excluded": 456,
+  "dates_filled": 10488,
+  "output_records": 10944,
+  "full_source_checks_passed": 10944,
+  "documented_spot_checks_passed": 93,
+  "handoff_csv_existed_before_run": true,
+  "handoff_csv_changed": false,
+  "duplicates_dropped": 0,
+  "missing_rows_inserted": 0,
+  "raw_files_unchanged": true,
+  "damon_conversion_confirmation": "pending",
+  "output_sha256": {
+    "data\\processed\\tuen_mun_aqhi.csv": "c83e26d375f3abfbc912605db4dc97c7a4b3a22b671afa5b3a755f9c8b6bf582",
+    "data\\processed\\data_quality_summary.csv": "19b7ffbab01b57569d6e86a8e0d92732ed7aac825be59b608ebb025ff15ccb65",
+    "data\\processed\\train_test_quality_summary.csv": "b5606cc0f5cdb9f442623d04ece0ad9984a58b648dc8990b5223ba42e64ba45b",
+    "data\\processed\\source_manifest.csv": "ae3f7621c793ef050f35f692cde495eaf88483b00090d96382b36c0601fa7474",
+    "data\\processed\\source_spot_checks.csv": "f771f233e4b9aaa3d2465f6bd7a46a5a34b6faf4551b71250f73eea5ec096a27"
+  }
+}
