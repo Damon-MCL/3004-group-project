@@ -1,4 +1,4 @@
-"""Create AQHI >= 4 figures for the results-discussion notebook.
+"""Create AQHI >= 4 and AQHI >= 7 figures for the results-discussion notebook.
 
 Run from any directory with the project requirements installed:
     python scripts/create_results_discussion_figures.py
@@ -17,6 +17,7 @@ from matplotlib.patches import Patch
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "outputs" / "aqhi4-lookback-comparison"
+DATA_7 = ROOT / "outputs" / "model-evaluation" / "lookback_comparison"
 OUT = ROOT / "outputs" / "results-discussion"
 METHODS = [
     "Decision Tree",
@@ -230,6 +231,118 @@ def plot_selected_cases() -> None:
     plt.close(fig)
 
 
+def plot_aqhi7_history_f1() -> None:
+    rows = read_csv(DATA_7 / "test_metrics.csv")
+    cohort_n = int(rows[0]["samples"])
+    positives = int(rows[0]["positive_samples"])
+    windows = ["3h", "6h", "12h"]
+    methods = METHODS
+    colors = {"3h": "#56B4E9", "6h": "#0072B2", "12h": "#CC79A7"}
+    x = np.arange(len(methods))
+    width = 0.23
+    fig, ax = plt.subplots(figsize=(10.0, 5.8), constrained_layout=True)
+    for i, window in enumerate(windows):
+        by_method = {r["method"]: float(r["f1"]) for r in rows if r["lookback"] == window}
+        bars = ax.bar(
+            x + (i - 1) * width,
+            [by_method[m] for m in methods],
+            width,
+            color=colors[window],
+            label=f"{window} history",
+        )
+        ax.bar_label(bars, fmt="%.2f", padding=2, fontsize=7)
+    ax.set_xticks(x, methods, rotation=18, ha="right")
+    ax.set_ylim(0, 0.34)
+    ax.set_ylabel("Test F1")
+    ax.set_title(
+        f"AQHI >= 7: test F1 across history windows\n"
+        f"({cohort_n:,} matched forecasts; {positives} positive targets)"
+    )
+    ax.grid(axis="y", alpha=0.2)
+    ax.legend(frameon=False, ncol=3, loc="upper center")
+    fig.savefig(OUT / "aqhi7_history_f1.png", bbox_inches="tight")
+    plt.close(fig)
+
+
+def plot_threshold_f1_comparison() -> None:
+    rows_4 = [r for r in read_csv(DATA / "test_metrics.csv") if r["lookback"] == "6h"]
+    rows_7 = [r for r in read_csv(DATA_7 / "test_metrics.csv") if r["lookback"] == "6h"]
+    cohort_n = int(rows_4[0]["samples"])
+    positives_4 = int(rows_4[0]["positive_samples"])
+    positives_7 = int(rows_7[0]["positive_samples"])
+    by_4 = {r["method"]: float(r["f1"]) for r in rows_4}
+    by_7 = {r["method"]: float(r["f1"]) for r in rows_7}
+    x = np.arange(len(METHODS))
+    width = 0.36
+    fig, ax = plt.subplots(figsize=(10.0, 5.8), constrained_layout=True)
+    bars_4 = ax.bar(x - width / 2, [by_4[m] for m in METHODS], width, color="#0072B2", label="AQHI >= 4")
+    bars_7 = ax.bar(x + width / 2, [by_7[m] for m in METHODS], width, color="#D55E00", label="AQHI >= 7")
+    ax.bar_label(bars_4, fmt="%.2f", padding=2, fontsize=8)
+    ax.bar_label(bars_7, fmt="%.2f", padding=2, fontsize=8)
+    ax.set_xticks(x, METHODS, rotation=18, ha="right")
+    ax.set_ylim(0, 0.88)
+    ax.set_ylabel("Test F1")
+    ax.set_title(
+        "Six-hour F1 under two target definitions\n"
+        f"Same {cohort_n:,} forecast times; positives: {positives_4} (>=4) vs {positives_7} (>=7)"
+    )
+    ax.text(
+        0.5, -0.29,
+        "The thresholds define different positive classes; F1 values describe separate tasks, not a like-for-like model ranking.",
+        transform=ax.transAxes, ha="center", va="top", fontsize=9,
+    )
+    ax.grid(axis="y", alpha=0.2)
+    ax.legend(frameon=False, ncol=2, loc="upper right")
+    fig.savefig(OUT / "threshold_f1_6h.png", bbox_inches="tight")
+    plt.close(fig)
+
+
+def plot_threshold_case() -> None:
+    target = "2026-04-01 17:00:00+08:00"
+    task_rows = {
+        "AQHI >= 4": [r for r in read_csv(DATA / "test_predictions_6h.csv") if r["target_time"] == target],
+        "AQHI >= 7": [r for r in read_csv(DATA_7 / "test_predictions_6h.csv") if r["target_time"] == target],
+    }
+    actual = {name: {float(r["actual_aqhi"]) for r in rows} for name, rows in task_rows.items()}
+    if actual["AQHI >= 4"] != {8.0} or actual["AQHI >= 7"] != {8.0}:
+        raise ValueError("Selected threshold example no longer matches observed AQHI=8.")
+    lookup = {name: {r["method"]: r for r in rows} for name, rows in task_rows.items()}
+    if any(set(lookup[name]) != set(METHODS) for name in lookup):
+        raise ValueError("Selected threshold example is missing model predictions.")
+
+    matrix = np.zeros((len(METHODS), 2), dtype=int)
+    for col, task in enumerate(("AQHI >= 4", "AQHI >= 7")):
+        actual_class = 1  # AQHI 8 is positive under both target definitions.
+        for row_index, method in enumerate(METHODS):
+            predicted = int(lookup[task][method]["predicted_class"])
+            matrix[row_index, col] = 3 if predicted == 1 else 2  # TP or FN
+
+    palette = ["#D9E2EC", "#F4A261", "#E76F51", "#2A9D8F"]
+    labels = {2: "FN", 3: "TP"}
+    fig, ax = plt.subplots(figsize=(7.8, 5.4), constrained_layout=True)
+    ax.imshow(matrix, cmap=ListedColormap(palette), vmin=-0.5, vmax=3.5, aspect="auto")
+    for i in range(len(METHODS)):
+        for j in range(2):
+            val = matrix[i, j]
+            ax.text(j, i, labels[val], ha="center", va="center", color="white", weight="bold", fontsize=11)
+    ax.set_xticks([0, 1], ["AQHI >= 4\nactual positive", "AQHI >= 7\nactual positive"])
+    ax.set_yticks(range(len(METHODS)), METHODS)
+    ax.set_title("Same six-hour event, different target thresholds\n" +
+                 "Target: 1 Apr 2026 17:00 HKT; observed AQHI=8; issued at 11:00")
+    ax.set_xlabel("Classification outcome for each target definition")
+    ax.set_ylabel("Method")
+    ax.set_xticks(np.arange(-0.5, 2, 1), minor=True)
+    ax.set_yticks(np.arange(-0.5, len(METHODS), 1), minor=True)
+    ax.grid(which="minor", color="white", linewidth=2)
+    ax.tick_params(which="minor", bottom=False, left=False)
+    ax.legend(
+        handles=[Patch(color=palette[3], label="True positive"), Patch(color=palette[2], label="Missed positive (FN)")],
+        frameon=False, ncol=2, loc="upper center", bbox_to_anchor=(0.5, -0.17),
+    )
+    fig.savefig(OUT / "threshold_case_apr01_17.png", bbox_inches="tight")
+    plt.close(fig)
+
+
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     set_plot_style()
@@ -238,9 +351,11 @@ def main() -> None:
     plot_precision_recall(six_hour_rows)
     plot_error_counts(six_hour_rows)
     plot_selected_cases()
-    print(f"Created three figures in {OUT}")
+    plot_aqhi7_history_f1()
+    plot_threshold_f1_comparison()
+    plot_threshold_case()
+    print(f"Created six figures in {OUT}")
 
 
 if __name__ == "__main__":
     main()
-
